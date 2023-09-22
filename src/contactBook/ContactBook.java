@@ -112,5 +112,21 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean existsMorePhone() {
+        int i = 0;
+        boolean more = false;
+        while (i < counter && !more) {
+            int e = i + 1;
+            while (e < counter && !more) {
+                if (contacts[i].getPhone() == contacts[e].getPhone()) {
+                    more = true;
+                } else
+                    e++;
+            }
+            i++;
+        }
+        return more;
+    }
+
 }
 
