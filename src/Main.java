@@ -173,6 +173,5 @@ public class Main {
         if (cBook.existsMorePhone()) {
             System.out.println(SHARED_NUM);
         } else System.out.println(DIF_PHONE);
-
     }
 }
