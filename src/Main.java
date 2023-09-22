@@ -14,6 +14,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String GOOD_NIGHT     = "GN";
+    public static final String EXISTS_PHONE   = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -24,6 +25,8 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NO_PHONE = "Phone number does not exist.";
+    public static final String SHARED_NUM = "There are contacts that share phone numbers.";
+    public static final String DIF_PHONE = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -57,6 +60,9 @@ public class Main {
                     break;
                 case GOOD_NIGHT:
                     goodNight(in,cBook);
+                    break;
+                case EXISTS_PHONE:
+                    existsPhone(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -161,5 +167,12 @@ public class Main {
             System.out.println(cBook.getContact(numb));
         }
         else System.out.println(NO_PHONE);
+    }
+
+    private static void existsPhone(ContactBook cBook) {
+        if (cBook.existsMorePhone()) {
+            System.out.println(SHARED_NUM);
+        } else System.out.println(DIF_PHONE);
+
     }
 }
